@@ -11,20 +11,19 @@ public class SetPropertyDrawer : PropertyDrawer
 {
 	public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 	{
-		// It's possible for previous GUI elements to have been modified before we get called, so reset the state
-		GUI.changed = false;
-
 		// Rely on the default inspector GUI
+		EditorGUI.BeginChangeCheck ();
 		EditorGUI.PropertyField(position, property, label);
 
 		// Update only when necessary
 		SetPropertyAttribute setProperty = attribute as SetPropertyAttribute;
-		if (GUI.changed)
+		if (EditorGUI.EndChangeCheck())
 		{
 			// When a SerializedProperty is modified the actual field does not have the current value set (i.e.  
 			// FieldInfo.GetValue() will return the prior value that was set) until after this OnGUI call has completed. 
 			// Therefore, we need to mark this property as dirty, so that it can be updated with a subsequent OnGUI event 
 			// (e.g. Repaint)
+			Debug.Log ("Modified");
 			setProperty.IsDirty = true;
 		} 
 		else if (setProperty.IsDirty)
