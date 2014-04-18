@@ -23,7 +23,6 @@ public class SetPropertyDrawer : PropertyDrawer
 			// FieldInfo.GetValue() will return the prior value that was set) until after this OnGUI call has completed. 
 			// Therefore, we need to mark this property as dirty, so that it can be updated with a subsequent OnGUI event 
 			// (e.g. Repaint)
-			Debug.Log ("Modified");
 			setProperty.IsDirty = true;
 		} 
 		else if (setProperty.IsDirty)
