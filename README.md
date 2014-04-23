@@ -9,8 +9,7 @@ Unity allows you to serialize private fields with [SerializeField]. Use the new 
 public property set every time the field is modified in Unity's inspector. NOTE: It is okay to have private setters for
 public properties. Vanilla classes (i.e. non-MonoBehaviours) also work as well.
 
-	[SerializeField]
-	[SetProperty("Number")]
+	[SerializeField, SetProperty("Number")]
 	private float number;
 	public float Number
 	{

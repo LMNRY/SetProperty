@@ -15,8 +15,7 @@ public class SetPropertyExample : MonoBehaviour
 			Mint,
 		}
 
-		[SerializeField]
-		[SetProperty("Extra")]
+		[SerializeField, SetProperty("Extra")]
 		private ExtraType extra;
 		public ExtraType Extra
 		{
@@ -41,8 +40,7 @@ public class SetPropertyExample : MonoBehaviour
 		}
 	}
 
-	[SerializeField]
-	[SetProperty("Number")]
+	[SerializeField, SetProperty("Number")]
 	private float number;
 	public float Number
 	{
@@ -56,8 +54,7 @@ public class SetPropertyExample : MonoBehaviour
 		}
 	}
 
-	[SerializeField]
-	[SetProperty("Text")]
+	[SerializeField, SetProperty("Text")]
 	private string text;
 	public string Text
 	{
